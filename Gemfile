@@ -49,6 +49,8 @@ gem 'haml-rails'
 gem 'flatui-rails'
 gem 'simple_form', github: 'plataformatec/simple_form'
 
+gem 'closure_tree'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
