@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130725173938) do
+ActiveRecord::Schema.define(version: 20130725174338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20130725173938) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "note_hierarchies", force: true do |t|
+    t.integer "ancestor_id",   null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations",   null: false
+  end
+
+  add_index "note_hierarchies", ["ancestor_id", "descendant_id", "generations"], name: "note_anc_desc_udx", unique: true, using: :btree
+  add_index "note_hierarchies", ["descendant_id"], name: "note_desc_idx", using: :btree
 
   create_table "notes", force: true do |t|
     t.string   "title",      null: false
