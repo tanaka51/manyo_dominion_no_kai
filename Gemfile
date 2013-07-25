@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
@@ -43,3 +44,19 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'haml-rails'
+gem 'flatui-rails'
+gem 'simple_form', github: 'plataformatec/simple_form'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'letter_opener'
+  gem 'quiet_assets'
+end
+
+group :development, :test do
+  gem 'pry-rails'
+  gem 'rspec-rails'
+end
