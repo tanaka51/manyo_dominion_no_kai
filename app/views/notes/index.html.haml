@@ -1,25 +1,10 @@
-%h1 Listing notes
+%h1 スレッド一覧
 
-%table
-  %tr
-    %th Title
-    %th Body
-    %th Parent
-    %th Creator
-    %th
-    %th
-    %th
+= link_to '新しいスレッドをつくる', new_note_path, class: 'btn btn-primary'
 
-  - @notes.each do |note|
-    %tr
-      %td= note.title
-      %td= note.body
-      %td= note.parent_id
-      %td= note.creator
-      %td= link_to 'Show', note
-      %td= link_to 'Edit', edit_note_path(note)
-      %td= link_to 'Destroy', note, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%hr
 
-%br
-
-= link_to 'New Note', new_note_path
+- @notes.each do |note|
+  %h3
+    = link_to note.title, note
+    %span.badge.badge-info= note.descendants.size
