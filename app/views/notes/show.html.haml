@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @note.title
+%p
+  %b Body:
+  = @note.body
+%p
+  %b Parent:
+  = @note.parent_id
+%p
+  %b Creator:
+  = @note.creator
+
+= link_to 'Edit', edit_note_path(@note)
+\|
+= link_to 'Back', notes_path

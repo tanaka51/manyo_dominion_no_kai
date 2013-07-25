@@ -1,0 +1,11 @@
+= simple_form_for(@note) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :body
+    = f.input :parent_id
+    = f.input :creator
+
+  .form-actions
+    = f.button :submit
