@@ -1,0 +1,9 @@
+<div class="row">
+  <% depth = note.depth %>
+  <div class="<%= "span#{9-depth} offset#{depth}" %>">
+    <h<%= depth + 3 %>><%= note.title %></h<%= depth + 3 %>>
+    <p><%= note.body %></p>
+    <p class="pull-right">書いた人: <%= note.creator %></p>
+  </div>
+</div>
+<%= render partial: 'note', collection: note.children %>
