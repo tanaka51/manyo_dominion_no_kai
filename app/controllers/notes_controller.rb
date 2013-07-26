@@ -19,6 +19,8 @@ class NotesController < ApplicationController
 
   # GET /notes/1/replay
   def replay
+    @parent_note = Note.find(params[:id])
+    @note = @parent_note.build_replay
   end
 
   # GET /notes/1/edit

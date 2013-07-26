@@ -6,6 +6,7 @@ class Note < ActiveRecord::Base
     children.new(title: replied_title)
   end
 
+  # TODO: ActiveDecorator 案件な気がする
   def human_creator
     return "名無し" if creator.blank?
     creator
