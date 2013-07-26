@@ -2,6 +2,9 @@
 class Note < ActiveRecord::Base
   acts_as_tree
 
+  validates :title, presence: true
+  validates :body, presence: true
+
   def build_replay
     children.new(title: replied_title)
   end
