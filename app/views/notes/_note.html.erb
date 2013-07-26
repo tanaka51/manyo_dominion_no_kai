@@ -3,7 +3,10 @@
   <div class="<%= "span#{9-depth} offset#{depth}" %>">
     <h<%= depth + 3 %>><%= note.title %></h<%= depth + 3 %>>
     <p><%= note.body %></p>
-    <p class="pull-right">書いた人: <%= note.creator %></p>
+    <ul class="pull-right">
+      <li>書いた人: <%= note.human_creator %></li>
+      <li><%= link_to '>> 返信', replay_note_path(id: note.id) %></li>
+    </ul>
   </div>
 </div>
 <%= render partial: 'note', collection: note.children %>

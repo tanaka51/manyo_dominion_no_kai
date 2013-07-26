@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_note, only: [:show, :replay, :edit, :update, :destroy]
 
   # GET /notes
   # GET /notes.json
@@ -17,6 +17,10 @@ class NotesController < ApplicationController
     @note = Note.new
   end
 
+  # GET /notes/1/replay
+  def replay
+  end
+
   # GET /notes/1/edit
   def edit
   end
@@ -28,7 +32,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.save
-        format.html { redirect_to @note, notice: 'Note was successfully created.' }
+        format.html { redirect_to @note.self_and_ancestors.last, notice: 'Note was successfully created.' }
         format.json { render action: 'show', status: :created, location: @note }
       else
         format.html { render action: 'new' }

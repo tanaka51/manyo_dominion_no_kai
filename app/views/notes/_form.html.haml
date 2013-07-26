@@ -1,11 +1,11 @@
-= simple_form_for(@note) do |f|
+= simple_form_for(@note.build_replay) do |f|
   = f.error_notification
 
   .form-inputs
-    = f.input :title
-    = f.input :body
-    = f.input :parent_id
-    = f.input :creator
+    = f.input :title, input_html: { class: 'span6' }
+    = f.input :creator, input_html: { class: 'span6' }
+    = f.input :body, input_html: { class: 'span9', rows: 10 }
+    = f.input :parent_id, as: :hidden
 
   .form-actions
     = f.button :submit

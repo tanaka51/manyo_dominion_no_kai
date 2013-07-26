@@ -1,0 +1,9 @@
+.well
+  %p.muted 返信先
+  %hr
+  %h3= @note.title
+  %p= @note.body
+  %hr
+  %p= "書いた人: #{@note.human_creator}"
+
+= render 'form'
