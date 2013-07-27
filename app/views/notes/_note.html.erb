@@ -2,7 +2,7 @@
   <% depth = note.depth %>
   <div class="<%= "span#{9-depth} offset#{depth}" %>">
     <h<%= depth + 3 %>><%= note.title %></h<%= depth + 3 %>>
-    <p><%= newline note.body %></p>
+    <p><%= raw(emojify(newline(note.body))) %></p>
     <ul class="pull-right">
       <li>書いた人: <%= note.human_creator %></li>
       <li><%= link_to '>> 返信', replay_note_path(id: note.id) %></li>
