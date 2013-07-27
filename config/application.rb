@@ -20,6 +20,5 @@ module ManyoDominionNoKai
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.assets.paths << Emoji.images_path
-    config.assets.precompile << Dir["#{Emoji.images_path}/emoji/*.png"] # without /unicode/ directory for fast compile
   end
 end
